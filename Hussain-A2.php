@@ -1,28 +1,24 @@
 <?php
-// Define the API endpoint URL
+
 $apiUrl = "https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?limit=100";
 
-// Fetch the API response
+
 $response = file_get_contents($apiUrl);
 
 if ($response === FALSE) {
     die("Error: Unable to fetch data from the API.");
 }
 
-// Decode the JSON response
+
 $data = json_decode($response, true);
 
 if ($data === NULL) {
     die("Error: Invalid JSON data.");
 }
 
-// Safely extract results
+
 $records = $data['results'] ?? [];
 
-// Debugging: Uncomment these lines if needed
-// echo "<pre>";
-// print_r($records);
-// echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
